@@ -23,9 +23,10 @@
 .font-weight-regular {font-weight:400;}
 .max-width-830 {.center-block;max-width:830px;}
 .max-width-960 {.center-block;max-width:960px;}
+.pos-absolute {position:absolute;}
+.pos-relative {position:relative;}
 .text-decoration-none {text-decoration:none;}
 .text-decoration-underline {text-decoration:underline;}
-.relative {position:relative;}
 
 html {
   font-size: 62.5%;
@@ -48,6 +49,12 @@ h1 {
 }
 p {
   margin-bottom: 1.43em;
+}
+
+[data-background] {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 /* bootstrap */
@@ -103,26 +110,26 @@ p {
 
 /* structure */
 #site-header {
-  .relative;
+  .pos-relative;
   z-index: 6;
   background: @white;
 }
 
 #site-navigation {
-  .relative;
+  .pos-relative;
   z-index: 5;
   background: @black;
 }
 
 #product-search-bar {
-  .relative;
+  .pos-relative;
   z-index: 4;
   background: @gold;
   border-bottom: .2rem solid @white;
 }
 
 #homepage-hero {
-  .relative;
+  .pos-relative;
   z-index: 3;
   background: @grey;
   border-bottom: .2rem solid @white;
@@ -130,10 +137,48 @@ p {
   .col-12 {
     .flex-row;
     flex-wrap: nowrap;
+    flex-direction: row;
     
     .slideshow {
       flex: 1 1 auto;
       border-left: .2rem solid @white;
+      position: relative;
+
+      .slide {
+        .pos-absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        a {
+          .block;
+          .pos-absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          .brand {
+            .block;
+            .pos-absolute;
+            .flex-row;
+            justify-content: flex-end;
+            bottom: 3.5rem;
+            left: 3.5rem;
+            right: 3.5rem;
+            top: 3.5rem;
+
+            img {
+              .block;
+              margin-top: auto;
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+            }
+          }
+        }
+      }
     }
     .featured-product {
       flex: 0 0 32rem;
@@ -145,13 +190,12 @@ p {
       color: @white;
       font-size: 1.7rem;
       line-height: 2.2rem;
-      margin-top: 30px;
 
       h2 {
         .font-weight-regular;
         font-size: 2rem;
         line-height: 2.2rem;
-        margin: 0 0 1rem;
+        margin: 3rem 0 1rem;
       }
       .action {
         margin-top: 4.5rem;
@@ -167,7 +211,7 @@ p {
 }
 
 #page-body {
-  .relative;
+  .pos-relative;
   z-index: 2;
   padding: 6rem 0;
   background: @white;
@@ -175,7 +219,7 @@ p {
 
 #site-footer {
   .font-open-sans;
-  .relative;
+  .pos-relative;
   z-index: 1;
   padding: 3.5rem 0;
   background: @black;
