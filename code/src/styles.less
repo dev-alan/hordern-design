@@ -283,6 +283,12 @@ p {
       .font-weight-regular;
       font-size: 1.6rem;
       line-height: 2.4rem;
+
+      body[data-menu-visible="true"] & {
+        & > ul {
+          .block;
+        } 
+      }
     }
     
     button {
@@ -320,19 +326,11 @@ p {
 
       @media(max-width:@md) {
         .pos-absolute;
-        .block;
-        .all-transitions;
-        visibility: hidden;
-        opacity: 0;
+        .conceal;
         background: fade(@black, 90);
         top: 100%;
         left: 0;
-        width: 30rem;
-
-        body[data-menu-visible="true"] & {
-          visibility: visible;
-          opacity: 1;
-        }
+        width: 27rem;
       }
 
       li {
@@ -342,6 +340,19 @@ p {
 
         @media(max-width:@md) {
           margin: 0;
+
+          &[data-menu-expanded="true"] {
+            & > a {
+              & > button {
+                &:after {
+                  transform: rotate(90deg);
+                }
+              }
+            }
+            & > ul {
+              .block;
+            }
+          }
         }
 
         a {
@@ -352,7 +363,38 @@ p {
           padding: 1.8rem 0;
 
           @media(max-width:@md) {
-            padding: 1.2rem 2rem;
+            padding: 1.2rem 4.8rem 1.2rem 2rem;
+            position: relative;
+          }
+
+          button {
+            .conceal;
+            .pos-absolute;
+            right: 1.2rem;
+            top: 50%;
+            height: 2.4rem;
+            width: 2.4rem;
+            padding: 0;
+            margin: 0;
+            transform: translateY(-50%);
+            background: @white;
+            border: 0;
+
+            &:active, &:focus, &:hover {
+              background: @white;
+            }
+
+            @media(max-width:@md) {
+              .block;
+            }
+
+            &:after {
+              .font-awesome;
+              .block;
+              line-height: 2.4rem;
+              content: '\f105';
+            }
+
           }
         }
 
@@ -380,6 +422,9 @@ p {
             width: auto;
             margin-left: 2rem;
             border-left: 1px dotted fade(@white, 50);
+            background: transparent;
+            opacity: 1;
+            visibility: visible;
           }
 
           li {
@@ -413,8 +458,18 @@ p {
     .flex-row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    @media(max-width:@lg) {
+      .block;
+    }
     
     .brands {
+      flex: 1 1 auto;
+
+      @media(max-width:@md) {
+        .conceal;
+      }
+
       ul {
         .flex-row;
         flex-wrap: wrap;
@@ -422,10 +477,28 @@ p {
         padding: 0;
         margin: 0;
 
+        @media(max-width:@lg) {
+          justify-content: space-between;
+          margin: 0 -15px;
+        }
+
         li {
           .block;
           padding: 1.2rem 0;
           margin: auto 2.4rem auto 0;
+
+          @media(max-width:@lg) {
+            width: ~"calc(100% / 6)";
+            margin: auto 0;
+            text-align: center;
+            padding: 1.2rem 15px;
+          }
+
+          img {
+            .inline-block;
+            max-width: 100%;
+            height: auto;
+          }
         }
       }
     }
@@ -436,6 +509,17 @@ p {
       flex: 0 0 30rem;
       min-width: 30rem;
       margin-left: 1.2rem;
+
+      @media(max-width:@lg) {
+        margin-left: 0;
+        margin-top: 1.2rem;
+        padding-bottom: 1.2rem;
+      }
+
+      @media(max-width:@md) {
+        margin-top: 0;
+        padding-bottom: 0;
+      }
 
       .input-group {
         background: #ffffff;
@@ -484,11 +568,20 @@ p {
   z-index: 3;
   background: @grey;
   border-bottom: .2rem solid @white;
+  
+  .container-fluid {
+    max-width: 1260px;
+  }
 
   .col-12 {
     .flex-row;
     flex-wrap: nowrap;
     flex-direction: row;
+    padding: 0;
+
+    @media(max-width:@md) {
+      .block;
+    }
     
     .slideshow {
       flex: 1 1 auto;
@@ -496,18 +589,32 @@ p {
       position: relative;
       width: ~"calc(100% - 32rem)";
 
+      @media(max-width:@md) {
+        width: auto;
+        border-right: .2rem solid @white;
+      }
+
       .owl-stage-outer {
         .flex-row;
         flex-wrap: nowrap;
         height: 100%;
+
+        @media(max-width:@md) {
+          .block;
+          height: auto;
+        }
 
         .owl-stage {
           .flex-row;
           flex-wrap: nowrap;
           height: 100%;
 
+          @media(max-width:@md) {
+            height: auto;
+            .block;
+          }
+
           .owl-item {
-            float: none;
             flex: 0 0 auto;
           }
         }
@@ -544,6 +651,15 @@ p {
         right: 0;
         bottom: 0;
 
+        @media(max-width:@md) {
+          .pos-relative;
+          .block;
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+        }
+
         a {
           .block;
           .pos-absolute;
@@ -551,6 +667,15 @@ p {
           left: 0;
           right: 0;
           bottom: 0;
+
+          @media(max-width:@md) {
+            .pos-relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            padding-top: 67.6%;
+          }
 
           .brand {
             .block;
@@ -562,6 +687,17 @@ p {
             right: 3.5rem;
             top: 3.5rem;
 
+            @media(max-width:@md) {
+              .block;
+              bottom: auto;
+              right: 0;
+              top: 0;
+              left: auto;
+              max-width: 100%;
+              width: 250px;
+              padding: 3.5rem;
+            }
+
             img {
               .block;
               margin-top: auto;
@@ -569,6 +705,10 @@ p {
               height: auto;
               width: auto;
               max-height: 100%;
+
+              @media(max-width:@md) {
+                margin-top: 0;
+              }
             }
           }
         }
@@ -584,6 +724,10 @@ p {
       color: @white;
       font-size: 1.7rem;
       line-height: 2.2rem;
+
+      @media(max-width:@md) {
+        border-top: .2rem solid @white;
+      }
 
       h2 {
         .font-weight-regular;
@@ -668,5 +812,10 @@ p {
   #site-copyright {
     p {
       margin: 0;
+    }
+
+    @media(max-width:@md) {
+      order: 1;
+      margin-top: 3rem;
     }
   }

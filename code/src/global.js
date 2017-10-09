@@ -28,6 +28,20 @@ var page = {
     }
   },
   loadMenu: function(){
+    var menu = document.querySelector('#site-navigation nav');
+    if(menu) {
+      Array.prototype.slice.call(menu.querySelectorAll('li ul')).forEach(function(ul){
+        var li = ul.parentElement;
+        var a = li.querySelector('a');
+        var button = document.createElement('button');
+        button.className = 'btn btn-default';
+        button.addEventListener('click', function(e){
+          e.preventDefault();
+          li.getAttribute('data-menu-expanded') === 'true' ? li.setAttribute('data-menu-expanded', 'false') : li.setAttribute('data-menu-expanded', 'true');
+        });
+        a.appendChild(button);
+      });
+    }
     var trigger = document.querySelector('#mobile-nav-trigger');
     if(trigger) {
       trigger.addEventListener('click', function(e){
