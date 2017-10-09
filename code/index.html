@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="node_modules/lato-font/css/lato-font.min.css">
   <link rel="stylesheet" href="node_modules/typeface-nunito-sans/index.css">
   <link rel="stylesheet" href="node_modules/npm-font-open-sans/open-sans.css">
+  <link rel="stylesheet" href="node_modules/lato-font/css/lato-font.min.css">
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="node_modules/tether/dist/css/tether.min.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -18,10 +19,10 @@
   <section id="site-header">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6 col-12">
-          <a id="site-logo" href="/"><img src="assets/logo-main.png" alt="Hordern"></a>
+        <div class="logo col-sm-6 col-5">
+          <a id="site-logo" href="/"><img src="dist/assets/logo-main.png" alt="Hordern"></a>
         </div>
-        <div class="col-sm-6 col-12">
+        <div class="contact col-sm-6 col-7">
           <p><span><small>Customer Service</small><br><a href="tel:+61294176969">02 9417 6968</a></span></p>
         </div>
       </div>
@@ -32,9 +33,17 @@
       <div class="row">
         <div class="col-12">
           <nav>
+            <button id="mobile-nav-trigger" class="btn btn-primary"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
             <ul>
               <li><a href="#">Products</a></li>
-              <li><a href="#">Resources</a></li>
+              <li>
+                <a href="#">Resources</a>
+                <ul>
+                  <li><a href="#">Resource 1</a></li>
+                  <li><a href="#">Resource 2</a></li>
+                  <li><a href="#">Resource 3</a></li>
+                </ul>
+              </li>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Contact Us</a></li>
             </ul>

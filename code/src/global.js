@@ -1,5 +1,8 @@
 var page = {
+  body: null,
   init: function() {
+    body = document.querySelector('body');
+    this.loadMenu();
     this.loadBackgrounds();
     this.loadGalleries();
   },
@@ -21,6 +24,15 @@ var page = {
             dots: true
           });
         });
+      });
+    }
+  },
+  loadMenu: function(){
+    var trigger = document.querySelector('#mobile-nav-trigger');
+    if(trigger) {
+      trigger.addEventListener('click', function(e){
+        e.preventDefault();
+        body.getAttribute('data-menu-visible') === 'true' ? body.setAttribute('data-menu-visible', 'false') : body.setAttribute('data-menu-visible', 'true');
       });
     }
   }
