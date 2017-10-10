@@ -6,6 +6,19 @@ var page = {
     this.loadBackgrounds();
     this.loadGalleries();
   },
+  _buildMenu: function(menu){
+    Array.prototype.slice.call(menu.querySelectorAll('li ul')).forEach(function(ul){
+      var li = ul.parentElement;
+      var a = li.querySelector('a');
+      var button = document.createElement('button');
+      button.className = 'btn btn-default';
+      button.addEventListener('click', function(e){
+        e.preventDefault();
+        li.getAttribute('data-menu-expanded') === 'true' ? li.setAttribute('data-menu-expanded', 'false') : li.setAttribute('data-menu-expanded', 'true');
+      });
+      a.appendChild(button);
+    });
+  },
   loadBackgrounds: function(){
     Array.prototype.slice.call(document.querySelectorAll('[data-background]')).forEach(function(el){
       el.style.backgroundImage = 'url("' + el.getAttribute('data-background') + '")';
@@ -28,19 +41,9 @@ var page = {
     }
   },
   loadMenu: function(){
-    var menu = document.querySelector('#site-navigation nav');
-    if(menu) {
-      Array.prototype.slice.call(menu.querySelectorAll('li ul')).forEach(function(ul){
-        var li = ul.parentElement;
-        var a = li.querySelector('a');
-        var button = document.createElement('button');
-        button.className = 'btn btn-default';
-        button.addEventListener('click', function(e){
-          e.preventDefault();
-          li.getAttribute('data-menu-expanded') === 'true' ? li.setAttribute('data-menu-expanded', 'false') : li.setAttribute('data-menu-expanded', 'true');
-        });
-        a.appendChild(button);
-      });
+    var mainMenu = document.querySelector('#site-navigation nav');
+    if(mainMenu) {
+      this._buildMenu(mainMenu);
     }
     var trigger = document.querySelector('#mobile-nav-trigger');
     if(trigger) {
@@ -48,6 +51,11 @@ var page = {
         e.preventDefault();
         body.getAttribute('data-menu-visible') === 'true' ? body.setAttribute('data-menu-visible', 'false') : body.setAttribute('data-menu-visible', 'true');
       });
+    }
+
+    var shopMenu = document.querySelector('#store-menu');
+    if(shopMenu) {
+      this._buildMenu(shopMenu);
     }
   }
 }
