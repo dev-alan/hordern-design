@@ -466,7 +466,7 @@ p {
     .brands {
       flex: 1 1 auto;
 
-      @media(max-width:@md) {
+      @media(max-width:@xxs) {
         .conceal;
       }
 
@@ -482,6 +482,10 @@ p {
           margin: 0 -15px;
         }
 
+        @media(max-width:@md) {
+          margin: 0 -0.6rem;
+        }
+
         li {
           .block;
           padding: 1.2rem 0;
@@ -492,6 +496,10 @@ p {
             margin: auto 0;
             text-align: center;
             padding: 1.2rem 15px;
+          }
+
+          @media(max-width:@md) {
+            padding: 1.2rem .6rem;
           }
 
           img {
