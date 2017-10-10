@@ -11,6 +11,7 @@
 @gold-light: #ffb310;
 @grey: #5c5c5c;
 @dark-grey: #333333;
+@mid-dark-grey: #5c5c5c;
 @mid-grey: #666666;
 @placeholder-grey: #666666;
 @transparent: transparent;
@@ -816,9 +817,61 @@ p {
 #page-body {
   .pos-relative;
   z-index: 2;
-  padding: 6rem 0;
   background: @white;
 }
+  #breadcrumbs {
+    .font-nunito;
+    .font-weight-light;
+    background: @mid-dark-grey;
+    color: @white;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    padding: 1.5rem 0;
+
+    ul {
+      .flex-row;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        .block;
+        padding: 0;
+        margin: 0;
+
+        &:after {
+          content: '\/';
+          margin: 0 0.8rem;
+        }
+        
+        &:nth-last-of-type(1) {
+          &:after {
+            .conceal;
+          }
+        }
+
+        a {
+          .all-transitions;
+          color: @white;
+          
+          &:hover {
+            .text-decoration-none;
+          }
+          &:active, &.focus, &:hover {
+            color: @gold;
+          }
+        }
+      }
+    }
+  }
+  #main-content {
+    padding: 6rem 0;
+    
+    #breadcrumbs + & {
+      padding: 11.5rem 0;
+    }
+  }
 
 #site-footer {
   .font-open-sans;
