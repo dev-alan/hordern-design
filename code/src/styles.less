@@ -14,6 +14,7 @@
 @mid-dark-grey: #5c5c5c;
 @mid-grey: #666666;
 @light-grey: #c6c6c6;
+@lighter-grey: #f4f4f4;
 @placeholder-grey: #666666;
 @transparent: transparent;
 @white: #ffffff;
@@ -1014,7 +1015,7 @@ p {
               border-bottom: 0;
             }
 
-            &.active a {
+            &.active > a {
               color: @gold;
             }
 
@@ -1075,14 +1076,61 @@ p {
 
             ul {
               .conceal;
+              .text-transform-uppercase;
               border-top: 1px solid @light-grey;
+              font-size: 1.6rem;
+              padding: 0.6rem 0;
 
               li {
+                border: 0;
+                
+                &.active {
+                  & > a {
+                    .font-weight-bold;
+                    color: @black;
+                  }
+                }
                 
                 a {
                   font-weight: 400;
-                  padding-left: 2.6rem;
                   font-size: 1.5rem;
+                  line-height: 2.5rem;
+                  padding: 0.6rem 5rem 0.6rem 1.3rem;
+                  color: @black;
+
+                  &:active, &:focus, &:hover {
+                    color: @black;
+                    .text-decoration-underline;
+                  }
+
+                  .btn {
+                    color: @black;
+                    line-height: 4.5rem;
+                    height: 4.5rem;
+                  }
+                }
+
+                ul {
+                  .font-weight-light;
+                  font-size: 1.6rem;
+                  line-height: 2.4rem;
+                  border-top: 0;
+                  margin-left: 1rem;
+                  
+                  li {
+
+                    &.active {
+                      & > a {
+                        .font-weight-light;
+                        background: @lighter-grey;
+                      }
+                    }
+                    a {
+                      .text-transform-none;
+                      padding:0.4rem 5rem 0.4rem 1rem;
+                      
+                    }
+                  }
                 }
               }
             }

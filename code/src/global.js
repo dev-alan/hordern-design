@@ -9,6 +9,14 @@ var page = {
   _buildMenu: function(menu){
     Array.prototype.slice.call(menu.querySelectorAll('li ul')).forEach(function(ul){
       var li = ul.parentElement;
+      var liClassNameArray = li.className.split(' ');
+      if(liClassNameArray.length) {
+        liClassNameArray.forEach(function(className){
+          if(className === 'active') {
+            li.setAttribute('data-menu-expanded', true);
+          }
+        });
+      }
       var a = li.querySelector('a');
       var button = document.createElement('button');
       button.className = 'btn btn-default';
