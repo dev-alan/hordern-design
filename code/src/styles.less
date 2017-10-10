@@ -10,6 +10,7 @@
 @gold: #feb10b;
 @gold-light: #ffb310;
 @grey: #5c5c5c;
+@dark-grey: #333333;
 @mid-grey: #666666;
 @placeholder-grey: #666666;
 @transparent: transparent;
@@ -62,10 +63,33 @@ body {
   font-size: 2.1rem;
   line-height: 3rem;
 }
-h1 {
+
+a {
+  color: @gold;
+  .text-decoration-none;
+
+  &:hover {
+    .text-decoration-underline;
+  }
+}
+h1, .h1 {
+  .font-nunito;
+  .font-weight-bold;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  margin: 0 0 .85em;
+}
+h2, .h2 {
   .font-nunito;
   .font-weight-regular;
   font-size: 3.6rem;
+  line-height: 4.4rem;
+  margin: 0 0 .85em;
+}
+h3, .h3 {
+  .font-nunito;
+  .font-weight-regular;
+  font-size: 2.8rem;
   line-height: 4.4rem;
   margin: 0 0 .85em;
 }
@@ -81,29 +105,29 @@ p {
 [placeholder]::-webkit-input-placeholder {
   .font-style-italic;
   .font-weight-light;
-  color: #333333;
+  color: @dark-grey;
 }
 [placeholder]:-moz-placeholder {
   .font-style-italic;
   .font-weight-light;
-  color: #333333;
+  color: @dark-grey;
   opacity: 1;
 }
 [placeholder]::-moz-placeholder {
   .font-style-italic;
   .font-weight-light;
-  color: #333333;
+  color: @dark-grey;
   opacity: 1;
 }
 [placeholder]:-ms-input-placeholder {
   .font-style-italic;
   .font-weight-light;
-  color: #333333;
+  color: @dark-grey;
 }
 [placeholder]::-ms-input-placeholder {
   .font-style-italic;
   .font-weight-light;
-  color: #333333;
+  color: @dark-grey;
 }
 
 /* bootstrap */
@@ -338,6 +362,12 @@ p {
         .pos-relative;
         margin: auto 4rem auto 0;
 
+        &:hover {
+          & > a {
+            color: @gold;
+          }
+        }
+
         @media(max-width:@md) {
           margin: 0;
 
@@ -358,6 +388,7 @@ p {
         a {
           .text-decoration-none;
           .text-transform-uppercase;
+          .all-transitions;
           .block;
           color: #ffffff;
           padding: 1.8rem 0;
@@ -405,9 +436,9 @@ p {
           .all-transitions;
           left: -2rem;
           top: 100%;
-          background: fade(@black, 90);
-          width: 30rem;
-          font-size: 1.6rem;
+          background: @black;
+          width: 19rem;
+          font-size: 1.8rem;
           line-height: 2.4rem;
           margin: 0;
           opacity: 0;
@@ -430,9 +461,24 @@ p {
           li {
             margin: 0;
 
+            &:hover {
+              & > a {
+                color: @white;
+                background: @dark-grey;
+              }
+            }
+
             a {
               .text-transform-none;
-              padding: 1rem 2rem;
+              padding: .8rem 2rem;
+            }
+
+            ul {
+              .font-weight-light;
+              font-size: 1.5rem;
+              left: 100%;
+              top: 0;
+              padding: 0;
             }
           }
         }
