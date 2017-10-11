@@ -16,6 +16,7 @@
 @light-grey: #c6c6c6;
 @lighter-grey: #f4f4f4;
 @placeholder-grey: #666666;
+@smoke-white: #f7f7f7;
 @transparent: transparent;
 @white: #ffffff;
 
@@ -276,9 +277,11 @@ p {
 }
 
 .product-table {
+  margin-bottom: 5.5rem;
+
   @media(max-width:@md) {
     tr {
-      .block;
+      .flex-column;
       border-bottom: 1px solid @light-grey;
     }
   }
@@ -326,6 +329,8 @@ p {
 
       &[data-title="Series"] {
         @media(max-width:@md) {
+          order: 2;
+          
           &:before {
             .font-weight-bold;
             .inline-block;
@@ -338,6 +343,8 @@ p {
       }
 
       &[data-title="Description"] {
+        order: 3;
+
         @media(max-width:@md) {
           &:before {
             .font-weight-bold;
@@ -355,6 +362,7 @@ p {
         
         @media(max-width:@md) {
           text-align: left;
+          order: 1;
         }
       }
 
@@ -365,6 +373,70 @@ p {
         &:active, &:focus, &:hover {
           .text-decoration-none;
           color: @gold;
+        }
+      }
+    }
+  }
+}
+
+.related-product-collection {
+  background: @smoke-white;
+  padding: 3.5rem 2rem;
+
+  h2 {
+    .font-nunito;
+    .font-weight-bold;
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+    margin: 0 0 3.5rem;
+  }
+
+  ul {
+    .flex-row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 -1rem;
+
+    @media(max-width:@xs) {
+      .block;
+    }
+
+    li {
+      .block;
+      padding: 0 1rem;
+      margin: 0;
+      width: 25%;
+
+      @media(max-width:@md) {
+        width: 50%;
+      }
+
+      @media(max-width:@xs) {
+        width: auto;
+      }
+
+      .item {
+
+        .image {
+          text-align: center;
+
+          img {
+            .inline-block;
+            max-width: 100%;
+            height: auto;
+          }
+        }
+        .text {
+          .font-weight-regular;
+          font-size: 1.8rem;
+          line-height: 2.4rem;
+          padding: 1rem 0;
+          text-align: center;
+
+          a {
+            color: @black;
+          }
         }
       }
     }
