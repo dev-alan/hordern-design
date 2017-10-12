@@ -16,6 +16,7 @@
     "jquery": "^3.2.1",
     "lato-font": "^3.0.0",
     "less": "^2.7.2",
+    "lightbox2": "^2.9.0",
     "node-sass": "^4.5.3",
     "npm-font-open-sans": "^1.1.0",
     "owl.carousel": "^2.2.0",

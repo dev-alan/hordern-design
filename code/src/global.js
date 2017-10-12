@@ -47,6 +47,18 @@ var page = {
         });
       });
     }
+
+    if(document.querySelector('.product-detail-images')) {
+      Array.prototype.slice.call(document.querySelectorAll('.product-detail-images')).forEach(function(el){
+        $(el).owlCarousel({
+          items: 1,
+          loop: false,
+          autoplay: false,
+          nav: false,
+          dots: false
+        })
+      });
+    }
   },
   loadMenu: function(){
     var mainMenu = document.querySelector('#site-navigation nav');
